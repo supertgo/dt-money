@@ -7,8 +7,7 @@ export default {
     radius: '0.4rem'
   },
   font: {
-    family:
-      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+    family: "'Poppins', sans-serif",
     light: 300,
     normal: 400,
     bold: 600,
@@ -23,6 +22,7 @@ export default {
   },
   colors: {
     blue: '#5429CC',
+    blueLight: '#6933FF',
     green: '#33CC95',
     red: '#E62E4D',
     shape: '#FFFFFF',
@@ -46,4 +46,4 @@ export default {
     modal: 40,
     alwaysOnTop: 50
   }
-};
+} as const;

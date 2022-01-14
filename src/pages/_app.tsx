@@ -10,6 +10,7 @@ function App({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <Head>
         <title>Dt-Money</title>
+
         <link rel="shortcut icon" href="favicon.png" />
         <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />

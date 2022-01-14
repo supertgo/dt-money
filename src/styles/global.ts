@@ -12,8 +12,23 @@ const GlobalStyles = createGlobalStyle`
       font-size: 62.5%;
     }
 
-    body {
+    body,
+    input,
+    textarea,
+    button {
       font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
+      font-weight: 400;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong {
+      font-weight: 600;
     }
 
     button {
