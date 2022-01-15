@@ -1,8 +1,10 @@
 import Dashboard from 'components/Dashboard';
 import Header from 'components/Header';
+import NewTransactionModal from 'components/NewTransactionModal';
 import TransactionsTable from 'components/TransactionsTable';
 
 import { createServer } from 'miragejs';
+import { useState } from 'react';
 
 createServer({
   routes() {
@@ -17,9 +19,23 @@ createServer({
 });
 
 export default function Home() {
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
+    useState(false);
+
+  function handleOpenNewTransactionModal() {
+    setIsNewTransactionModalOpen(true);
+  }
+
+  function closeOpenNewTransactionModal() {
+    setIsNewTransactionModalOpen(false);
+  }
   return (
     <>
-      <Header />
+      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+      <NewTransactionModal
+        isOpen={isNewTransactionModalOpen}
+        onRequestClose={closeOpenNewTransactionModal}
+      />
       <Dashboard />
       <TransactionsTable />
     </>

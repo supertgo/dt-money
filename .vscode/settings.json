@@ -5,6 +5,7 @@
   },
   "conventionalCommits.scopes": [
     "jest",
-    "components"
+    "components",
+    "api"
   ]
 }
