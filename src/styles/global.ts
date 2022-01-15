@@ -12,6 +12,10 @@ const GlobalStyles = createGlobalStyle`
       font-size: 62.5%;
     }
 
+    body {
+      background: ${theme.colors.background};
+    }
+
     body,
     input,
     textarea,
