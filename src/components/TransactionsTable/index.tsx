@@ -1,14 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from 'services/api';
+import { formatDate } from 'utils/formatDate';
+import { formatPrice } from 'utils/formatPrice';
 import * as S from './styles';
 
-export type TransactionsTableProps = {
-  type?: 'deposit' | 'withdraw';
+type Transaction = {
+  id: string;
+  title: string;
+  type: string;
+  amount: number;
+  category: string;
+  createdAt: string;
 };
 
-const TransactionsTable = ({ type = 'deposit' }: TransactionsTableProps) => {
+const TransactionsTable = () => {
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
   useEffect(() => {
-    api.get('transactions').then((response) => console.log(response.data));
+    api
+      .get('transactions')
+      .then((response) => setTransactions(response.data.transactions));
   }, []);
 
   return (
@@ -24,26 +35,16 @@ const TransactionsTable = ({ type = 'deposit' }: TransactionsTableProps) => {
         </S.THead>
 
         <S.TBody>
-          <S.Tr>
-            <S.Td>Desenvolvimento de Website</S.Td>
-            <S.AmountTd type="withdraw">R$ 12.000,00</S.AmountTd>
-            <S.Td>Desenvolvimento</S.Td>
-            <S.Td>20/02/21</S.Td>
-          </S.Tr>
-
-          <S.Tr>
-            <S.Td>Desenvolvimento de Website</S.Td>
-            <S.AmountTd type={type}>R$ 12.000,00</S.AmountTd>
-            <S.Td>Desenvolvimento</S.Td>
-            <S.Td>20/02/21</S.Td>
-          </S.Tr>
-
-          <S.Tr>
-            <S.Td>Desenvolvimento de Website</S.Td>
-            <S.AmountTd type={type}>R$ 12.000,00</S.AmountTd>
-            <S.Td>Desenvolvimento</S.Td>
-            <S.Td>20/02/21</S.Td>
-          </S.Tr>
+          {transactions.map(
+            ({ id, title, type, amount, category, createdAt }) => (
+              <S.Tr key={id}>
+                <S.Td>{title}</S.Td>
+                <S.AmountTd type={type}>{formatPrice(amount)}</S.AmountTd>
+                <S.Td>{category}</S.Td>
+                <S.Td>{formatDate(new Date(createdAt))}</S.Td>
+              </S.Tr>
+            )
+          )}
         </S.TBody>
       </S.Table>
     </S.Wrapper>
