@@ -1,5 +1,4 @@
 import styled, { css, DefaultTheme } from 'styled-components';
-import { TransactionsTableProps } from '.';
 
 export const Wrapper = styled.main`
   margin-top: 6.4rem;
@@ -39,7 +38,9 @@ export const Td = styled.td`
   `}
 `;
 
-type AmountProps = Pick<TransactionsTableProps, 'type'>;
+type AmountProps = {
+  type: 'withdraw' | 'deposit';
+};
 
 const AmountTdModifiers = {
   deposit: (theme: DefaultTheme) => css`

@@ -5,7 +5,7 @@ import { formatPrice } from 'utils/formatPrice';
 import * as S from './styles';
 
 const TransactionsTable = () => {
-  const transactions = useTransactions();
+  const { transactions } = useTransactions();
 
   return (
     <S.Wrapper>
@@ -24,7 +24,9 @@ const TransactionsTable = () => {
             ({ id, title, type, amount, category, createdAt }) => (
               <S.Tr key={id}>
                 <S.Td>{title}</S.Td>
-                <S.AmountTd type={type}>{formatPrice(amount)}</S.AmountTd>
+                <S.AmountTd type={type as 'withdraw' | 'deposit'}>
+                  {formatPrice(amount)}
+                </S.AmountTd>
                 <S.Td>{category}</S.Td>
                 <S.Td>{formatDate(new Date(createdAt))}</S.Td>
               </S.Tr>
