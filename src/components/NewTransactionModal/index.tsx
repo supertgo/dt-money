@@ -1,6 +1,9 @@
 import { useState } from 'react';
+
+import { useTransactions } from 'hooks/TransactionContext';
+
 import Modal from 'react-modal';
-import { api } from 'services/api';
+
 import * as S from './styles';
 
 if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#__next');
@@ -13,12 +16,16 @@ const NewTransactionModal = ({
   isOpen,
   onRequestClose
 }: NewTransactionModalProps) => {
+  const { createTransaction } = useTransactions();
+
   const [transaction, setTransaction] = useState({
     title: '',
-    value: 50,
+    value: 10,
     category: '',
     type: 'deposit'
   });
+
+  const [transactionType, setTransactionType] = useState('deposit');
 
   function handleTransaction(key: string, value: number | string) {
     setTransaction({
@@ -27,12 +34,24 @@ const NewTransactionModal = ({
     });
   }
 
-  function handleCreateNewTransaction(event: React.FormEvent) {
+  async function handleCreateNewTransaction(event: React.FormEvent) {
     event.preventDefault();
 
-    const data = { transaction };
+    await createTransaction({
+      title: transaction.title,
+      type: transaction.type,
+      amount: transaction.value,
+      category: transaction.category
+    });
 
-    api.post('/transactions', data);
+    setTransaction({
+      type: transactionType,
+      title: '',
+      value: 10,
+      category: ''
+    });
+
+    onRequestClose();
   }
 
   return (
@@ -72,18 +91,24 @@ const NewTransactionModal = ({
 
         <S.TransactionTypeContainer>
           <S.TransactionButton
-            isActive={transaction.type === 'deposit'}
+            isActive={transactionType === 'deposit'}
             activeColor="green"
-            onClick={() => handleTransaction('type', 'deposit')}
+            onClick={() => {
+              setTransactionType('deposit');
+              handleTransaction('type', 'deposit');
+            }}
           >
             <S.Image src="/assets/income.svg" alt="Entrada" />
             <S.Text>Entrada</S.Text>
           </S.TransactionButton>
 
           <S.TransactionButton
-            isActive={transaction.type === 'withdraw'}
+            isActive={transactionType === 'withdraw'}
             activeColor="red"
-            onClick={() => handleTransaction('typ', 'withdraw')}
+            onClick={() => {
+              setTransactionType('withdraw');
+              handleTransaction('type', 'withdraw');
+            }}
           >
             <S.Image src="/assets/outcome.svg" alt="Saída" />
             <S.Text>Saída</S.Text>

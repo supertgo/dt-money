@@ -22,9 +22,10 @@ function App({ Component, pageProps }: AppProps) {
             content="A simple project to control your finances"
           />
         </Head>
+
+        <GlobalStyles />
+        <Component {...pageProps} />
       </TransactionsProvider>
-      <GlobalStyles />
-      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

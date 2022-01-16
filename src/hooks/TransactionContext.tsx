@@ -1,5 +1,8 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { api } from 'services/api';
+import { getStorageItem, setStorageItem } from 'utils/localStorage';
+
+const TRANSACTION_kEY = 'transactionsItems';
 
 export type Transaction = {
   id: number;
@@ -10,11 +13,20 @@ export type Transaction = {
   createdAt: string;
 };
 
+type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
+
 type TransactionsProviderProps = {
   children: React.ReactNode;
 };
 
-export const TransactionContext = createContext<Transaction[]>([]);
+type TransactionContextProps = {
+  transactions: Transaction[];
+  createTransaction: (transaction: TransactionInput) => Promise<void>;
+};
+
+const TransactionContext = createContext<TransactionContextProps>(
+  {} as TransactionContextProps
+);
 
 export const TransactionsProvider = ({
   children
@@ -22,13 +34,31 @@ export const TransactionsProvider = ({
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
   useEffect(() => {
-    api
-      .get('transactions')
-      .then((response) => setTransactions(response.data.transactions));
+    const data = getStorageItem(TRANSACTION_kEY);
+
+    if (data) {
+      setTransactions(data);
+    }
   }, []);
 
+  async function createTransaction(transactionInput: TransactionInput) {
+    const response = await api.post('/transactions', {
+      ...transactionInput,
+      createdAt: new Date()
+    });
+    const { transaction } = response.data;
+
+    saveTransactions([...transactions, transaction]);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function saveTransactions(transaction: any) {
+    setStorageItem(TRANSACTION_kEY, transaction);
+    setTransactions(transaction);
+  }
+
   return (
-    <TransactionContext.Provider value={transactions}>
+    <TransactionContext.Provider value={{ transactions, createTransaction }}>
       {children}
     </TransactionContext.Provider>
   );
