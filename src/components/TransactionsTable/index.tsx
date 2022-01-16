@@ -1,26 +1,11 @@
-import { useEffect, useState } from 'react';
-import { api } from 'services/api';
+import { useTransactions } from 'hooks/TransactionContext';
 import { formatDate } from 'utils/formatDate';
 import { formatPrice } from 'utils/formatPrice';
+
 import * as S from './styles';
 
-type Transaction = {
-  id: string;
-  title: string;
-  type: string;
-  amount: number;
-  category: string;
-  createdAt: string;
-};
-
 const TransactionsTable = () => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  useEffect(() => {
-    api
-      .get('transactions')
-      .then((response) => setTransactions(response.data.transactions));
-  }, []);
+  const transactions = useTransactions();
 
   return (
     <S.Wrapper>
