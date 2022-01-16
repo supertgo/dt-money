@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react';
 import { renderWithTheme } from 'utils/tests/helpers';
+import { TransactionsProvider } from 'hooks/TransactionContext';
 
 import Dashboard from '.';
 
@@ -12,7 +13,12 @@ jest.mock('components/Summary', () => ({
 
 describe('<Dashboard />', () => {
   it('should render the heading', () => {
-    const { container } = renderWithTheme(<Dashboard />);
+    const { container } = renderWithTheme(
+      <TransactionsProvider>
+        <Dashboard />
+        );
+      </TransactionsProvider>
+    );
 
     expect(screen.getByTestId('Mock Summary')).toBeInTheDocument();
     expect(container.firstChild).toMatchInlineSnapshot(`
