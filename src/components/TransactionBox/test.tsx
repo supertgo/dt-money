@@ -20,7 +20,7 @@ describe('<TransactionBox />', () => {
     renderWithTheme(<TransactionBox type="outcome" amount={100} />);
 
     expect(screen.getByText('Saídas')).toBeInTheDocument();
-    expect(screen.getByText('R$ 100,00')).toBeInTheDocument();
+    expect(screen.getByText('- R$ 100,00')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: /Saída/i })).toBeInTheDocument();
   });
 

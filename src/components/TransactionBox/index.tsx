@@ -27,7 +27,9 @@ const TransactionBox = ({
           alt={translateTypeToPortuguese(type)}
         />
       </S.Header>
-      <S.Amount>{formatPrice(amount)}</S.Amount>
+      <S.Amount>
+        {type === 'outcome' ? `- ${formatPrice(amount)}` : formatPrice(amount)}
+      </S.Amount>
     </S.Wrapper>
   );
 };
