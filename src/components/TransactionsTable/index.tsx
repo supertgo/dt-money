@@ -1,6 +1,5 @@
+import TransactionsRow from 'components/TransactionsRow';
 import { useTransactions } from 'hooks/TransactionContext';
-import { formatDate } from 'utils/formatDate';
-import { formatPrice } from 'utils/formatPrice';
 
 import * as S from './styles';
 
@@ -20,18 +19,9 @@ const TransactionsTable = () => {
         </S.THead>
 
         <S.TBody>
-          {transactions.map(
-            ({ id, title, type, amount, category, createdAt }) => (
-              <S.Tr key={id}>
-                <S.Td>{title}</S.Td>
-                <S.AmountTd type={type as 'withdraw' | 'deposit'}>
-                  {formatPrice(amount)}
-                </S.AmountTd>
-                <S.Td>{category}</S.Td>
-                <S.Td>{formatDate(new Date(createdAt))}</S.Td>
-              </S.Tr>
-            )
-          )}
+          {transactions.map((transaction) => (
+            <TransactionsRow key={transaction.id} {...transaction} />
+          ))}
         </S.TBody>
       </S.Table>
     </S.Wrapper>

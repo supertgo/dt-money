@@ -4,7 +4,7 @@ import { getStorageItem, setStorageItem } from 'utils/localStorage';
 
 const TRANSACTION_kEY = 'transactionsItems';
 
-export type Transaction = {
+export type TransactionProps = {
   id: number;
   title: string;
   type: string;
@@ -13,14 +13,14 @@ export type Transaction = {
   createdAt: string;
 };
 
-type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
+type TransactionInput = Omit<TransactionProps, 'id' | 'createdAt'>;
 
 type TransactionsProviderProps = {
   children: React.ReactNode;
 };
 
 type TransactionContextProps = {
-  transactions: Transaction[];
+  transactions: TransactionProps[];
   createTransaction: (transaction: TransactionInput) => Promise<void>;
 };
 
@@ -31,7 +31,7 @@ const TransactionContext = createContext<TransactionContextProps>(
 export const TransactionsProvider = ({
   children
 }: TransactionsProviderProps) => {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [transactions, setTransactions] = useState<TransactionProps[]>([]);
 
   useEffect(() => {
     const data = getStorageItem(TRANSACTION_kEY);
