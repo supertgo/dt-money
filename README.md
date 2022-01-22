@@ -1,5 +1,7 @@
 # Dt-money
 
+A simple way to control your finances
+
 ## What is inside?
 
 This project uses lot of stuff as:
