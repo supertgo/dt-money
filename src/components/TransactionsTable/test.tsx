@@ -4,6 +4,13 @@ import { TransactionsProvider } from 'hooks/TransactionContext';
 
 import TransactionsTable from '.';
 
+jest.mock('components/TransactionsRow', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock TransactionsRow" />;
+  }
+}));
+
 describe('<TransactionsTable />', () => {
   it('should render the heading', () => {
     renderWithTheme(

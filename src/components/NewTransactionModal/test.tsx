@@ -58,4 +58,25 @@ describe('<NewTransactionModal />', () => {
       expect(screen.queryByText('Cadastrar transação')).not.toBeInTheDocument();
     });
   });
+
+  it('should change input value when type', () => {
+    const mockOnRequestClose = jest.fn();
+    renderWithTheme(
+      <NewTransactionModal isOpen onRequestClose={mockOnRequestClose} />
+    );
+
+    const inputTitle: HTMLInputElement = screen.getByPlaceholderText('Título');
+    const inputCategory: HTMLInputElement =
+      screen.getByPlaceholderText('Categoria');
+
+    fireEvent.change(inputCategory, { target: 'Categoria' });
+    fireEvent.change(inputTitle, { target: 'Transação' });
+    fireEvent.change(inputTitle, { target: '100' });
+
+    waitFor(() => {
+      expect(inputTitle.value).toBe('Transação');
+      expect(inputTitle.value).toBe('Categoria');
+      expect(inputTitle.value).toBe(100);
+    });
+  });
 });
