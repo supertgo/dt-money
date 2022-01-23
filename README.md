@@ -3,12 +3,20 @@
 <h1 align="center">
     <img alt="Dt-money logo" src="public/assets/logo.svg" />
     <br>
-    A simple way to control your finances
+    A easy way to control your finances
 </h1>
 
 <p align="center">
-  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;
 </p>
+
+
+
+<p align="center">
+  <img src="/demo/dt-money-mobile.gif" />
+</p>
+
+<img src="/demo/dt-money-desktop.gif" />
 
 ## :rocket: Technologies
 
