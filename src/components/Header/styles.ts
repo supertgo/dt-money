@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Header = styled.header`
   ${({ theme }) => css`
@@ -17,7 +18,11 @@ export const Content = styled.div`
   `}
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  ${media.lessThan('medium')`
+    max-width: 12rem;
+  `}
+`;
 
 export const Button = styled.button`
   ${({ theme }) => css`
@@ -32,5 +37,11 @@ export const Button = styled.button`
     &:hover {
       filter: brightness(0.9);
     }
+
+    ${media.lessThan('medium')`
+      font-size: 1.2rem;
+      max-width: 13rem;
+      padding: 0 1rem;
+    `}
   `}
 `;

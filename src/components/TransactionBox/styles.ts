@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 import { TransactionBoxProps } from '.';
 
 type WrapperProps = Pick<TransactionBoxProps, 'color'>;
@@ -32,5 +33,9 @@ export const Amount = styled.strong`
     font-size: 3.2rem;
     font-weight: 500;
     line-height: ${theme.spacings.xlarge};
+
+    ${media.lessThan('medium')`
+      font-size: 2.5rem;
+    `}
   `}
 `;

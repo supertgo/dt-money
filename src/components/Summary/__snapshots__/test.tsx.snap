@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Summary /> should render the heading 1`] = `
+.c1 {
+  display: none;
+}
+
+.c4 {
+  display: none;
+}
+
+.c3 .slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.c3 .slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.c3 .slick-list:focus {
+  outline: none;
+}
+
+.c3 .slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.c3 .slick-slider .slick-track,
+.c3 .slick-slider .slick-list {
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.c3 .slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.c3 .slick-track:before,
+.c3 .slick-track:after {
+  display: table;
+  content: '';
+}
+
+.c3 .slick-track:after {
+  clear: both;
+}
+
+.c3 .slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.c3 .slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+.c3 [dir='rtl'] .slick-slide {
+  float: right;
+}
+
+.c3 .slick-slide img {
+  display: block;
+}
+
+.c3 .slick-slide.slick-loading img {
+  display: none;
+}
+
+.c3 .slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.c3 .slick-initialized .slick-slide {
+  display: block;
+}
+
+.c3 .slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.c3 .slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.c3 .slick-arrow.slick-hidden {
+  display: none;
+}
+
+.c2 .slick-track {
+  width: 1000rem !important;
+}
+
+.c2 .slick-slide {
+  margin-left: 1rem;
+  width: 25rem !important;
+}
+
+.c0 {
+  margin-top: -16rem;
+}
+
+.c5 {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3.2rem;
+}
+
+@media (max-width:768px) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media (min-width:768px) {
+  .c4 {
+    display: block;
+  }
+}
+
+<div>
+  <main
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <main
+        class="c2"
+      >
+        <main
+          class="c3"
+        >
+          <div
+            class="slick-slider slick-initialized"
+            dir="ltr"
+          >
+            <div
+              class="slick-list"
+            >
+              <div
+                class="slick-track"
+                style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+              >
+                <div
+                  aria-hidden="false"
+                  class="slick-slide slick-active slick-current"
+                  data-index="0"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      data-testid="Mock TransactionBox"
+                    />
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="1"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      data-testid="Mock TransactionBox"
+                    />
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="slick-slide"
+                  data-index="2"
+                  style="outline: none; width: 0px;"
+                  tabindex="-1"
+                >
+                  <div>
+                    <div
+                      data-testid="Mock TransactionBox"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </main>
+    </div>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        <div
+          data-testid="Mock TransactionBox"
+        />
+        <div
+          data-testid="Mock TransactionBox"
+        />
+        <div
+          data-testid="Mock TransactionBox"
+        />
+      </div>
+    </div>
+  </main>
+</div>
+`;

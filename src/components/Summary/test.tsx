@@ -21,30 +21,7 @@ describe('<Summary />', () => {
       </TransactionsProvider>
     );
 
-    expect(screen.getAllByTestId('Mock TransactionBox')).toHaveLength(3);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap: 3.2rem;
-        margin-top: -16rem;
-      }
-
-      <div>
-        <main
-          class="c0"
-        >
-          <div
-            data-testid="Mock TransactionBox"
-          />
-          <div
-            data-testid="Mock TransactionBox"
-          />
-          <div
-            data-testid="Mock TransactionBox"
-          />
-        </main>
-      </div>
-    `);
+    expect(screen.getAllByTestId('Mock TransactionBox')).toHaveLength(6);
+    expect(container).toMatchSnapshot();
   });
 });

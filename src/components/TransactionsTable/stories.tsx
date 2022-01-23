@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { TransactionsProvider } from 'hooks/TransactionContext';
 import TransactionsTable from '.';
 
 export default {
@@ -6,4 +7,8 @@ export default {
   component: TransactionsTable
 } as Meta;
 
-export const Default: Story = () => <TransactionsTable />;
+export const Default: Story = () => (
+  <TransactionsProvider>
+    <TransactionsTable />
+  </TransactionsProvider>
+);

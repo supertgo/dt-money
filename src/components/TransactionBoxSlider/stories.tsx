@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import TransactionBoxSlider from '.';
-import mockTransactionBox from 'components/TransactionBox/mock';
+import TransactionBox from 'components/TransactionBox';
 
 export default {
   title: 'TransactionBoxSlider',
@@ -8,5 +8,9 @@ export default {
 } as Meta;
 
 export const Default: Story = () => (
-  <TransactionBoxSlider items={mockTransactionBox} />
+  <TransactionBoxSlider>
+    <TransactionBox amount={100} />
+    <TransactionBox type="outcome" amount={500} />
+    <TransactionBox type="total" amount={500} color="green" />
+  </TransactionBoxSlider>
 );

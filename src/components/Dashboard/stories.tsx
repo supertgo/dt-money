@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { TransactionsProvider } from 'hooks/TransactionContext';
 import Dashboard from '.';
 
 export default {
@@ -8,6 +9,8 @@ export default {
 
 export const Default: Story = () => (
   <div style={{ marginTop: '15rem' }}>
-    <Dashboard />
+    <TransactionsProvider>
+      <Dashboard />
+    </TransactionsProvider>
   </div>
 );

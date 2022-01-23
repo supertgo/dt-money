@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-const APP_KEY = 'DASHGO';
+const APP_KEY = 'DTMONEY';
 
 export function getStorageItem(key: string) {
   if (typeof window === 'undefined') return;

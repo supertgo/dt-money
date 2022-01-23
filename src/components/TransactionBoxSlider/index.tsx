@@ -1,10 +1,9 @@
 import Slider, { SliderSettings } from 'components/Slider';
-import TransactionBox, { TransactionBoxProps } from 'components/TransactionBox';
 
 import * as S from './styles';
 
 export type TransactionBoxSliderProps = {
-  items: TransactionBoxProps[];
+  children: React.ReactNode;
 };
 
 const settings: SliderSettings = {
@@ -20,13 +19,9 @@ const settings: SliderSettings = {
   ]
 };
 
-const TransactionBoxSlider = ({ items }: TransactionBoxSliderProps) => (
+const TransactionBoxSlider = ({ children }: TransactionBoxSliderProps) => (
   <S.Wrapper>
-    <Slider settings={settings}>
-      {items.map((item) => (
-        <TransactionBox key={item.type} {...item} />
-      ))}
-    </Slider>
+    <Slider settings={settings}>{children}</Slider>
   </S.Wrapper>
 );
 

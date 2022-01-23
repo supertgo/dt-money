@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { TransactionsProvider } from 'hooks/TransactionContext';
 import Summary from '.';
 
 export default {
@@ -6,4 +7,8 @@ export default {
   component: Summary
 } as Meta;
 
-export const Default: Story = () => <Summary />;
+export const Default: Story = () => (
+  <TransactionsProvider>
+    <Summary />
+  </TransactionsProvider>
+);
