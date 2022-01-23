@@ -1,8 +1,16 @@
 # Dt-money
 
-A simple way to control your finances
+<h1 align="center">
+    <img alt="Dt-money logo" src="public/assets/logo.svg" />
+    <br>
+    A simple way to control your finances
+</h1>
 
-## What is inside?
+<p align="center">
+  <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
+
+## :rocket: Technologies
 
 This project uses lot of stuff as:
 
@@ -41,17 +49,11 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - `storybook`: runs storybook on `localhost:6006`
 - `build-storybook`: create the build version of storybook
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img alt="Supertgo" title="Supertgo" src="https://avatars.githubusercontent.com/u/47607913?v=4" height="100" width="100" />
 
-## Deploy on Vercel
+[![LinkedIn Badge](https://img.shields.io/badge/-Thiago_Roberto-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/thiago-roberto-69763b142/)](https://www.linkedin.com/in/thiago-roberto-69763b142/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Made with ♥ by Thiago Roberto(Supertgo) :wave: [Get in touch!](https://www.linkedin.com/in/thiago-roberto-69763b142/)
