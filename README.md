@@ -1,5 +1,3 @@
-# Dt-money
-
 <h1 align="center">
     <img alt="Dt-money logo" src="public/assets/logo.svg" />
     <br>
