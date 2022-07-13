@@ -1,9 +1,7 @@
-# Dt-money
-
 <h1 align="center">
     <img alt="Dt-money logo" src="public/assets/logo.svg" />
     <br>
-    A easy way to control your finances
+    An easy way to control your finances
 </h1>
 
 <p align="center">
